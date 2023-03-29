@@ -1,0 +1,83 @@
+<body style="background-color: rgb(231, 243, 255); margin-top: -13px;">
+
+    <app-search-task (taskWorddata)="taskWorddata($event)" (highPrioritydata)="highPrioritydata($event)" (lowPrioritydata)="lowPrioritydata($event)" (alltasksdata)="alltasksdata($event)"></app-search-task>
+
+   
+
+  
+
+  <div class="row justify-content-center" style="margin-top: 3%;">
+    <mat-card
+      *ngFor="
+        let task of tasks | paginate : { itemsPerPage: 8, currentPage: p }
+      "
+      class="example-card shadow mx-5 my-4 rounded col-3 col-sm-3 mb-3 mb-sm-0"
+      [ngStyle]="{ 'background-color': getCardColor(task.category) }"
+      
+      (mouseenter)="isHidden = !isHidden"
+      (mouseleave)="isHidden = !isHidden"
+    >
+    <!-- [ngStyle]="{'background-color' : task.backColour}" -->
+      <div>
+        <mat-card-title class="titlestyle" >{{
+          task.todoTitle |uppercase
+        }}</mat-card-title>
+
+        <button
+          class="moreOption"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="moveToArchive(task.todoId)">
+            <mat-icon class="iconSpacing" color="primary">archive</mat-icon>
+            <span>Archive</span>
+          </button>
+          <button mat-menu-item (click)="moveToCompleted(task.todoId)">
+            <mat-icon class="iconSpacing" color="warn">done_outline</mat-icon>
+            <span>Completed</span>
+          </button>
+          <button style="color: transparent;" mat-menu-item (click)="openDialog(task) ">
+            <mat-icon class="iconSpacing" color="primary">create</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="deleteTodo(task.todoId)">
+            <mat-icon class="iconSpacing" color="warn">delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+
+        <mat-card-subtitle>
+         <span class="matIconing" [ngStyle]="{'color' : getColor(task.category)}">
+        {{
+          task.category === 'High'? '🔥' : task.category === 'Mid level' ? 'arrow_circle_up' :
+          task.category === 'Normal' ? '❄' : '⏳'
+        }}
+        </span>
+          <p>Due Date : {{ task.dueDate |date : 'dd/MM/yyyy' }}</p>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <p style="color: black; margin-top: 4%">{{ task.todoDescription }}</p>
+        </mat-card-content>
+        <mat-card-content>
+          <mat-checkbox
+            class="example-margin"
+            *ngFor="let list of task.listOfTodo"
+            >{{ list }}</mat-checkbox
+          >
+        </mat-card-content>
+        <div
+          class="position-absolute bottom-0 start-0"
+          style="width: 300px"
+        ></div>
+      </div>
+    </mat-card>
+    <div style="margin-top: 5%" class="page">
+      <pagination-controls (pageChange)="p = $event" style="text-align: center">
+      </pagination-controls>
+    </div>
+  </div>
+</body>

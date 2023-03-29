@@ -1,0 +1,136 @@
+<p>
+  <mat-toolbar >
+    <!-- <button mat-button  class="navbar-toggler" data-bs-toggle="offcanvas" *ngIf="loginservice.isloggedin" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <div >
+      <img style="height: 55px; margin-right: 10px;" src="../../assets/TodolistLogo2.png" alt="" routerLink="/viewtask">
+     
+
+      </div>
+      <a style="color: rgb(239, 236, 236); text-decoration: none; font-weight: 650; font-size: 30px; ">Checkmate</a>
+   
+      
+      <!-- <app-search-task *ngIf="loginservice.isloggedin"></app-search-task> -->
+      <span class="example-spacer"></span>
+      <button  mat-icon-button class="example-icon favorite-icon" matTooltip="Add Task"   routerLink="/addtask" style="color: rgb(251, 252, 252);" *ngIf="loginservice.isloggedin" aria-label="Example icon-button with heart icon">
+        <mat-icon>add</mat-icon>
+      </button>
+      
+
+        <button mat-icon-button class="example-icon favorite-icon" matTooltip="Archived Tasks" routerLink="archivetask" style="color: rgb(248, 248, 248);"
+      *ngIf="loginservice.isloggedin" aria-label="Example icon-button with heart icon">
+      <mat-icon>archive</mat-icon>
+    </button>
+      <button mat-icon-button class="example-icon favorite-icon" matTooltip="Completed Tasks" routerLink="completed" style="color: rgb(255, 255, 255);"
+        *ngIf="loginservice.isloggedin" aria-label="Example icon-button with heart icon">
+        <mat-icon>assignment_turned_in</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon favorite-icon " matTooltip="Home" routerLink="/viewtask" style="color: rgb(255, 255, 255);" *ngIf="loginservice.isloggedin" aria-label="Example icon-button with heart icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <!-- <button mat-icon-button class="example-icon" style="color: aquamarine;" *ngIf="loginservice.isloggedin" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button> -->
+      <button mat-raised-button style="color: rgb(255, 248, 248);background-color: transparent;font-size: 18px;" *ngIf="!loginservice.isloggedin" routerLink="/login">Login</button>
+      <button mat-raised-button style="color: rgb(255, 250, 250);background-color: transparent;font-size: 18px;" *ngIf="!loginservice.isloggedin" class="sign" routerLink="/signup">Signup</button>
+      <div class="dropdown" *ngIf="loginservice.isloggedin">
+        
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <img [src]="userDetails.profileImage" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong style="color: aliceblue;">{{userDetails.firstName}}</strong>
+        </a>
+        
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item" routerLink="/addtask">New Task</a></li>
+
+          <li><a class="dropdown-item" routerLink="/viewprofile">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li style="background-color: rgb(133, 255, 133);">
+            <button class="dropdown-item" style="margin-top: 0px;font-size: 20px;" (click)="logout()">
+              Log out<mat-icon style="margin-left: 50px;margin-top: 0px;">logout</mat-icon></button>
+            
+          </li>
+        </ul>
+      </div>
+      
+    </mat-toolbar>
+  </p>
+
+
+  <!-- <mat-sidenav-container class="example-container" >
+    <mat-sidenav #sidenav [mode]="'side' || 'over'">
+      <app-sidenavbar></app-sidenavbar>
+      
+    </mat-sidenav>
+  
+    <mat-sidenav-content *ngIf="loginservice.isloggedin">
+        <app-view-task></app-view-task>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+  
+
+  <!-- <mat-sidenav-container class="example-container" >
+    <mat-sidenav class="sidenav" #sidenav [mode]="'side' || 'over'">
+      
+      <div id="sidenavall" class="d-flex flex-column flex-shrink-0 p-3" style="width: 300px; height: 681px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4">Sidebar</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              Orders
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+              Customers
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+   
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      hiiii
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->

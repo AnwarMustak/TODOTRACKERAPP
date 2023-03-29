@@ -1,0 +1,43 @@
+<div style="background-color: rgb(231, 243, 255); margin-top: -10px; padding-top: 3%; padding-bottom: 12.9%;">
+<mat-card class="example-card" >
+
+    <img style="border-radius: 50%; width: 300px; height: 300px; margin-top: -23%; " mat-card-image [src]="myImage"
+        alt="Image">
+
+
+
+    <button  (click)="inputField.click()"
+        style="color: rgb(0, 0, 0); margin-top: -25px; margin-left: 170px;font-size: 30px; height: auto; width: auto; background-color: transparent;border-color: transparent;">
+        <mat-icon >
+            add_a_photo
+        </mat-icon>
+        
+    </button>
+
+    <input hidden type="file" #inputField (change)="onChange($event)">
+
+    <mat-card-content>
+
+
+        <div>
+            
+            <mat-card-title class="name">
+                <b style="font-size: 30px; letter-spacing: 1.5px; color: aliceblue;">Name : {{firstName}}</b>
+             
+            </mat-card-title>
+        </div>
+        <br>
+        <mat-card-subtitle>
+            <b style="font-size: 25px; letter-spacing: 1.5px; color: aliceblue;">Email Id :  {{email}} </b></mat-card-subtitle>
+    </mat-card-content>
+
+
+</mat-card>
+
+</div>
+<!-- <input type="file" (change)="onChange($event)"/>
+<div *ngIf="myImage">
+    <img [src]="myImage" width="500px" height="500px"/>
+    <textarea  cols="50" rows="50" [(ngModel)]="myImage"></textarea>
+
+</div> -->

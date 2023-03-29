@@ -1,0 +1,32 @@
+.example-form {
+    margin-left: 20px;
+    margin-top: 30px;
+    
+   
+    width: 100%;
+   
+  }
+  
+  
+  .example-full-width {
+    margin-left: 33%;
+    width: 33%;
+    
+    
+  }
+  
+  .example-option-img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  [dir='rtl'] .example-option-img {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+  .dropdown{
+
+    margin-top: -5%;
+    margin-left: 85%;
+  }
+ 

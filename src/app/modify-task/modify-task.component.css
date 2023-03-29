@@ -1,0 +1,103 @@
+
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 6px;
+}
+
+/* .carddesign{
+  margin-left: 25%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-right: 25%;
+  margin-top: 0%;
+  background-color: darkgrey;
+} */
+.title{
+  font-size: 35px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ 
+  text-align: center;
+  margin-left: 37%;
+  
+  
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.submitbutt{
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-bottom: 2.9%;
+  
+  background-color: orangered;
+  width: 20%;
+}
+body{
+  margin-bottom: 0%;
+  margin-top: -1%;
+
+  height: fit-content;
+  padding-top: 4%;
+  padding-bottom: 5.7%;
+  
+  
+  
+}
+.priority{
+  
+  color: aliceblue;
+  font-size:20px;
+  font-weight: 600;
+  margin-top: -3.6%;
+  margin-bottom: 2.9%;
+
+ 
+}
+.priority1{
+  color: crimson;
+}
+
+.dialogbox{
+  width: 100%;
+  
+}
+
+.nobutt{
+  margin-left: 25%;
+  margin-right: 10%;
+  margin-bottom: 3.5%;
+  background-color: black;
+  width: 20%;
+  color: aliceblue;
+
+}
+
+
+/* body{
+  
+  
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    margin-right: 32%;
+    margin-top: 0%;
+} */
+/* form{
+  margin-left: 32%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  margin-right: 32%;
+  margin-top: 0%;
+} */
+form{
+  margin-bottom: 20%;
+ 
+}
+

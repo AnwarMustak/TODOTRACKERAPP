@@ -1,0 +1,167 @@
+<!-- <body>
+    <mat-card class="carddesign">
+    <mat-card-header>
+      
+      <p class="title">Edit Task</p>
+      
+    </mat-card-header>
+    <mat-card-actions>
+      <form [formGroup]="editTaskForm" (ngSubmit)="editTaskData()" class="example-form">
+        
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Title of Task</mat-label>
+            <input formControlName="todoTitle" matInput>
+          </mat-form-field></td>
+          
+        </tr></table>
+      
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Description</mat-label>
+            <textarea formControlName="todoDescription" matInput ></textarea>
+          </mat-form-field>
+          
+        </p>
+  
+        <div class="priority">
+          <label>Priority: </label>
+          <mat-radio-group formControlName="category">
+            <mat-radio-button value="High">High</mat-radio-button>
+            <mat-radio-button value="Normal">Normal</mat-radio-button>
+          </mat-radio-group>
+        </div>
+    
+        <p>
+  
+          <mat-form-field appearance="fill">
+            <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Choose a due date</mat-label>
+            <input formControlName="dueDate" matInput [matDatepicker]="picker">
+            <mat-hint style="font-size: larger;font-weight: 500;">MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </p>
+        
+      
+  
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Add Task List</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Enter Task List">
+              <mat-chip-row *ngFor="let task of tasklists"
+                            (removed)="remove(task)"
+                            [editable]="true"
+                            (edited)="edit(task, $event)"
+                            [aria-description]="'press enter to edit ' + task">
+                {{task}}
+                <button matChipRemove [attr.aria-label]="'remove ' + task">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+              <input placeholder="New Task..."
+                     [matChipInputFor]="chipGrid"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)"/>
+            </mat-chip-grid>
+            
+            
+          </mat-form-field>
+          <button class="submitbutt"  type="submit" mat-raised-button color="warn">ADD</button>
+      </form>
+    </mat-card-actions>
+  </mat-card>
+  </body> -->
+
+  
+<div style="background: linear-gradient(90deg,rgb(20, 26, 112)0% , rgb(29, 113, 146)100%); margin-bottom: -200px;">
+  <form [formGroup]="editTaskForm" > 
+    <h1 mat-dialog-title><span style="
+      color: aliceblue;
+      margin-left: 35%;
+      font-size: 30px;
+  "> Edit Task </span></h1>
+    
+    <div mat-dialog-content class="dialogbox">
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Title of Task</mat-label>
+          <input formControlName="todoTitle" matInput  >
+        </mat-form-field></td>
+        
+      </tr></table>
+    
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Description</mat-label>
+          <textarea formControlName="todoDescription" matInput></textarea>
+        </mat-form-field>
+        
+      </p>
+    
+  
+      <div class="priority">
+        <label>Priority: </label>
+        <mat-radio-group formControlName="category" >
+          
+          <mat-radio-button value="High"><span style="color: aliceblue;">High</span></mat-radio-button>
+          <mat-radio-button value="Normal"><span style="color: aliceblue;">Normal</span> </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    
+    
+      <p>
+      
+        <mat-form-field appearance="fill">
+          <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Choose a due date</mat-label>
+          <input formControlName="dueDate" matInput [matDatepicker]="picker">
+          <mat-hint style="font-size: larger;font-weight: 500;"><span style="color: aliceblue;">MM/DD/YYYY</span> </mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </p>
+    
+    
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label style="font-weight: 500;color: rgb(48, 55, 57);">Add Task List</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter Task List" >
+          <mat-chip-row  *ngFor="let task of data.task.listOfTodo"
+                        (removed)="remove(task)"
+                        [editable]="true"
+                        (edited)="edit(task, $event)"
+                        [aria-description]="'press enter to edit ' + task">
+            {{task}}
+            <button matChipRemove [attr.aria-label]="'remove ' + task">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input  placeholder="New Task..."
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+        
+        
+      </mat-form-field>
+      <!-- <div class="priority" style="color: rgb(255, 255, 255);">
+        <label>Colour : </label>
+        <mat-radio-group formControlName="backColour" >
+          <mat-radio-button value="white"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: white;">circle</mat-icon></mat-radio-button>
+          <mat-radio-button value="rgb(252, 252, 106)"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: rgb(252, 252, 106);">circle</mat-icon></mat-radio-button>
+          <mat-radio-button value="rgb(244, 179, 179)"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: rgb(244, 179, 179);">circle</mat-icon></mat-radio-button>
+          <mat-radio-button value="lightblue"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: lightblue;">circle</mat-icon></mat-radio-button>
+          <mat-radio-button value="lightgreen"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: lightgreen;">circle</mat-icon></mat-radio-button>
+          <mat-radio-button value="lightgray"><mat-icon style="font-size:40px;height: 40px;width: 40px;color: lightgray;">circle</mat-icon></mat-radio-button>
+        </mat-radio-group>
+      </div> -->
+    
+    
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button class="nobutt" (click)="onNoClick()">No Thanks</button>
+      <button mat-raised-button class="submitbutt" type="submit" (click)="editTaskData()" color="warn">Update</button>
+    </div>
+  </form>
+</div>

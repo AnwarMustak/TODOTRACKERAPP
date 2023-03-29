@@ -1,0 +1,56 @@
+<body class="container-fluid" style="background:  rgb(236, 211, 236);margin-top: -11.5px;">
+    <picture>
+        <img style="margin-top: 5%; border-radius: 20px;margin-left: 5%;" width="70%" height="600px"
+            src="https://tse1.mm.bing.net/th?id=OIP.YJgJx9kUzmdupvdQjRM9HAHaE7&pid=Api" alt="image">
+            
+    </picture>
+    <h1 style="position: absolute; margin-top: -23%; font-weight: bolder; font-size: 80px; color: aliceblue; margin-left: 15%; font-family: cursive;box-shadow: rgba(7, 7, 11, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">Just Do It!!!</h1>
+
+    <div style=" margin-top: -26%; margin-left: 60%;">
+
+        <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center;background: transparent;">
+            <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </mat-card>
+        <div class="container-lg-2" *ngIf="!isLoading">
+            <div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="text-center">
+                            <h1>Login</h1>
+                        </div>
+                        <form [formGroup]='loginForm' (ngSubmit)='sendLoginData()'>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email Id</label>
+                                <input type="email" formControlName="email" class="form-control "
+                                    id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div *ngIf="email?.invalid &&(email?.dirty||email?.touched)">
+                                    <div class="asset1" *ngIf="email?.errors?.['pattern']">
+                                        Email Id is invalid.
+                                    </div>
+                                    <p></p>
+                                    <div *ngIf="email?.errors?.['required']" class="asset1">Email is Required</div>
+                                </div>
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" formControlName="password" class="form-control"
+                                    id="exampleInputPassword1">
+                                <div *ngIf="password?.invalid &&(password?.dirty||password?.touched)">
+                                    <p></p>
+                                    <div *ngIf="password?.errors?.['required']" class="asset1">Password is Required
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-left: 120px;"
+                                [disabled]="loginForm.invalid">Login</button>
+                        </form>
+                        <a style="color: aliceblue;margin-top: 10px; text-align: center;" routerLink="/signup">New User
+                            ? click here to Sign up. </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

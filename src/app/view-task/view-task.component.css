@@ -1,0 +1,50 @@
+
+
+.example-card {
+  max-width: 250px;
+  height: auto;
+  padding-top: 0.5%;
+  padding-left: 1%;
+  padding-bottom: 0.5%;
+ 
+}
+
+
+
+.moreOption{
+  position: absolute;
+  margin-left: 73%;
+  margin-top: -30px;
+}
+body{
+overflow-x: hidden;
+height: 92.5%;
+
+}
+.page{
+  position: absolute;
+  bottom: 0px;
+  list-style: none;
+  
+  display: flex;
+  justify-content: center;
+  
+
+  color: white;
+  bottom: 0px;
+}
+
+.matIconing{
+  font-size: 30px;
+}
+.titlestyle{
+  
+  color: black;
+  margin-right: 12%;
+  margin-bottom: 4%;
+  font-size: 25px;
+  
+  border-radius: 11px;
+  padding-left: 4%;
+  padding-right: 4%;
+}

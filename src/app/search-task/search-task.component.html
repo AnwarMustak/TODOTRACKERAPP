@@ -1,0 +1,46 @@
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        
+      <mat-label>Task</mat-label>
+      <input class="input-form" matInput
+             aria-label="State"
+             [matAutocomplete]="auto"
+             [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option >
+          <img alt="" class="example-option-img" [src]="" height="25">
+          
+          <small>Population: </small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  
+   
+  
+   
+  </form>  -->
+
+  <p class="example-form">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Search Task</mat-label>
+      <input matInput placeholder="Search Task" [(ngModel)]="taskWord">
+      <mat-icon matSuffix (click)="onsearch()">search</mat-icon>
+      
+    </mat-form-field>
+    
+  </p>
+  <div class="dropdown">   
+    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+    <h2>Sort</h2>  
+    </a>
+    
+    <ul class="dropdown-menu text-small shadow">
+      <li><a class="dropdown-item" (click)="highPriority()">High Priority</a></li>
+
+      <li><a class="dropdown-item" (click)="lowPriority()">Low Priority</a></li>
+
+      <li><a class="dropdown-item" (click)="alltasks()">All</a></li>
+      
+  
+    </ul>
+  </div>
